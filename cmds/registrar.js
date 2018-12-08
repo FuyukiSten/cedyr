@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 
 exports.run = async (client, message, args, database) => {
-    if(!member.roles.some(r=>["Organizador Especial"].includes(r.name)) ) {
+    if(!message.member.roles.some(r=>["Organizador Especial"].includes(r.name)) ) {
         let nnnvaidarcaralho = new Discord.RichEmbed()
         .setColor(0xcc0000)
         .setDescription(`${message.author}, sem permissão !`)
@@ -16,7 +16,7 @@ if(!mencionado) {
     message.channel.send(A_2);
     return;
 }
-if(mencionado == message.author.id) {
+if(mencionado.id == message.author.id) {
     let A_3 = new Discord.RichEmbed()
     .setColor(0xcc0000)
     .setDescription(`${message.author}, mencione um membro valido !`);
