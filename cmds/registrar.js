@@ -37,6 +37,7 @@ database.ref(`registrados/${mencionado.id}`).once('value').then(async function(s
         database.ref(`registrados/${mencionado.id}`).set({
             registado: true
         })
+let member = mencionado;
 database.ref(`registros/${message.author.id}`)
 .once('value').then(async function (snap) {
 if (snap.val() == null) {
