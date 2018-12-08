@@ -3,6 +3,7 @@ const moment = require('moment');
         moment.locale('pt-BR');
 
 exports.run = async (client, message, args, database) => {
+        if(message.author.id !== '505096421532368907') return;
     function clean(text) {
         if (typeof(text) === "string")
           return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
