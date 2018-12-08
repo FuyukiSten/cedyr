@@ -8,7 +8,7 @@ exports.run = async (client, message, args, database) => {
         message.channel.send(nnnvaidarcaralho);
         return;
     }
-let mencionado = message.mentions.users.first()
+let mencionado = message.mentions.members.first()
 if(!mencionado) {
     let A_2 = new Discord.RichEmbed()
     .setColor(0xcc0000)
@@ -37,7 +37,6 @@ database.ref(`registrados/${mencionado.id}`).once('value').then(async function(s
         database.ref(`registrados/${mencionado.id}`).set({
             registado: true
         })
-let member = mencionado;
 database.ref(`registros/${message.author.id}`)
 .once('value').then(async function (snap) {
 if (snap.val() == null) {
@@ -47,7 +46,7 @@ database.ref(`registros/${message.author.id}`)
     });
     let A_5 = new Discord.RichEmbed()
     .setColor(0x4BB543)
-    .setDescription(`${message.author}, você registrou o membro ${member.user.username} com sucesso !`)
+    .setDescription(`${message.author}, você registrou o membro ${mencionado.user.username} com sucesso !`)
     await message.channel.send(A_5);
 } else {
         var reprecebido = parseInt(snap.val().registros) + parseInt(1); 
@@ -57,7 +56,7 @@ database.ref(`registros/${message.author.id}`)
     });
     let A_6 = new Discord.RichEmbed()
     .setColor(0x4BB543)
-    .setDescription(`${message.author}, você registrou o membro ${member.user.username} com sucesso !`)
+    .setDescription(`${message.author}, você registrou o membro ${mencionado.user.username} com sucesso !`)
     await message.channel.send(A_6);
     let A5 = new Discord.RichEmbed()
     .setTitle(`Você foi registrado na C.D.R !`)
