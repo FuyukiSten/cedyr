@@ -14,17 +14,17 @@ var config = {
   firebase.initializeApp(config);
 const database = firebase.database();
 client.on('ready', () => {
-    client.user.setActivity(`${client.guilds.get('520598202936721410').memberCount} membros.`, {type:'LISTENING'});
+    client.user.setActivity(`${client.guilds.get('402215846707068930').memberCount} membros.`, {type:'LISTENING'});
 });
 
 client.on('guildMemberAdd', member => {
-    if(member.guild.id !== '520598202936721410') return;
-    client.user.setActivity(`${client.guilds.get('520598202936721410').memberCount} membros.`, {type:'LISTENING'});
+    if(member.guild.id !== '402215846707068930') return;
+    client.user.setActivity(`${client.guilds.get('402215846707068930').memberCount} membros.`, {type:'LISTENING'});
 
-    let channel = member.guild.channels.get('520598202936721416');
+    let channel = member.guild.channels.get('489929853362241566');
     if(!channel) return console.log(`Canal com o ID 520598202936721416 não encontrado.`);
 
-    // <@&455796553291005992>    
+    channel.send('<@&455796553291005992>');    
     let owo = member.user;
 
     let embed = new Discord.RichEmbed();
@@ -34,7 +34,7 @@ client.on('guildMemberAdd', member => {
     embed.addField('**ID:**', `${owo.id}`)
     embed.addField('**Conta criada em:**', `${moment(owo.createdAt).format('LLLL')}`)
     channel.send(embed);
-    client.channels.get('520598202936721416').send(`${member} **Bem-vindo(a) á Celestial Dragon's** <a:513134629532860418:520655428573724673>`)
+    client.channels.get('402216598666215427').send(`${member} **Bem-vindo(a) á Celestial Dragon's** <a:513134629532860418:520655428573724673>`)
 });
 
 client.on('guildMemberRemove', () => {
@@ -44,7 +44,7 @@ client.on('guildMemberRemove', () => {
 let prefix = 'c!';
 
 client.on('message', async message => {
-    let auditlog = '520651820062867466';
+    let auditlog = '402216351885950977';
     client.auditlog = auditlog;
     if(message.author.bot) return;
     if(message.channel.type == 'dm') {
